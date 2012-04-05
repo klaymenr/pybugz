@@ -302,7 +302,7 @@ class Bugz:
 	def search(self, query, comments = False, order = 'number',
 			assigned_to = None, reporter = None, cc = None,
 			commenter = None, whiteboard = None, keywords = None,
-			status = [], severity = [], priority = [], product = [],
+			status = [], severity = [], priority = [], product = [], resolution = [],
 			component = []):
 		"""Search bugzilla for a bug.
 
@@ -319,6 +319,10 @@ class Bugz:
 		@type    cc: string
 		@keyword commenter: email of a commenter.
 		@type    commenter: string
+		@keyword product: search whithin products. empty means all.
+		@type    product: list
+		@keyword resolution: search for closed bugs with given resolution. empty means all.
+		@type    product: list
 
 		@keyword whiteboard: string to search in status whiteboard (gentoo?)
 		@type    whiteboard: string
@@ -365,6 +369,8 @@ class Bugz:
 			qparams['bug_status'] = [s.upper() for s in status]
 		qparams['product'] = product or ''
 		qparams['component'] = component or ''
+		qparams['product'] = product or ''
+		qparams['resolution'] = resolution or ''
 		qparams['status_whiteboard'] = whiteboard or ''
 		qparams['keywords'] = keywords or ''
 
@@ -573,7 +579,7 @@ class Bugz:
 		FIELDS = ('bug_file_loc', 'bug_severity', 'short_desc', 'bug_status',
 				'status_whiteboard', 'keywords', 'resolution',
 				'op_sys', 'priority', 'version', 'target_milestone',
-				'assigned_to', 'rep_platform', 'product', 'component', 'token')
+				'assigned_to', 'rep_platform', 'product', 'component', 'resolution', 'token')
 
 		FIELDS_MULTI = ('blocked', 'dependson')
 

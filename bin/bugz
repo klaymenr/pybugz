@@ -222,7 +222,11 @@ def make_search_parser(subparsers):
 		help = 'restrict by product (one or more)')
 	search_parser.add_argument('-C', '--component',
 		action='append',
-		help = 'restrict by component (1 or more)')
+		help = 'restrict by component (one or more)')
+	search_parser.add_argument('-R', '--resolution',
+		action='append',
+		choices = config.choices['resolution'].keys(),
+		help = 'Restrict by given resolution(one or more)')
 	search_parser.add_argument('-k', '--keywords',
 		help = 'restrict by keywords')
 	search_parser.add_argument('-w', '--whiteboard',

@@ -238,6 +238,7 @@ class PrettyBugz(Bugz):
 			('component', 'Component'),
 			('status_whiteboard', 'Whiteboard'),
 			('keywords', 'Keywords'),
+			('resolution', 'Resolution'),
 		)
 
 		for field, name in FIELDS + MORE_FIELDS:

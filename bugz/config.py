@@ -121,6 +121,8 @@ class BugzConfig:
 		'keywords': '',
 		'dependson': '',
 		'blocked': '',
+		'product':'',
+		'resolution':'fixed',
 		'knob': ('none', 'assigned', 'resolve', 'duplicate', 'reassign'),
 		'resolution': '', # only valid for knob=resolve
 		'dup_id': '',     # only valid for knob=duplicate
