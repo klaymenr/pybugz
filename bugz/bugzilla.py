@@ -367,12 +367,16 @@ class Bugz:
 			qparams['bug_status'] = config.choices['status']
 		else:
 			qparams['bug_status'] = [s.upper() for s in status]
-		qparams['product'] = product or ''
+		# qparams['product'] = product or ''
 		qparams['component'] = component or ''
-		qparams['product'] = product or ''
 		qparams['resolution'] = resolution or ''
 		qparams['status_whiteboard'] = whiteboard or ''
 		qparams['keywords'] = keywords or ''
+
+		# product fuzzy search
+		qparams['field0-0-0'] = 'product'
+		qparams['type0-0-0'] = 'substring'
+		qparams['value0-0-0'] = product or ''
 
 		# hoops to jump through for emails, since there are
 		# only two fields, we have to figure out what combinations
